@@ -1,0 +1,45 @@
+.widget-card__layout {
+  background-color: #fff;
+  border: 1px solid #d4d9dc;
+  border-radius: 10px;
+  color: #6c757d;
+  display: flex;
+  font-size: 14px;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  .card-title {
+    display: flex;
+    justify-content: space-between;
+    .close {
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: none;
+      color: #5a5f7d;
+    }
+  }
+  .widget-type {
+    text-transform: capitalize;
+  }
+  .card-footer {
+    display: flex;
+    gap: 12px;
+    button {
+      flex: 1;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+  }
+}
