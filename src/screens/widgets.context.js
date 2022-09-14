@@ -8,6 +8,10 @@ export const WidgetsContextProvider = ({ children }) => {
     widgets: [],
   });
 
+  // server API call here
+  // const submitWidgets = () => {
+  // };
+
   const addWidgetGlobalState = useCallback(
     (type, data) => {
       const widget = {
@@ -15,14 +19,16 @@ export const WidgetsContextProvider = ({ children }) => {
         name: data.name,
         target: data.target,
       };
-      setWidgetGlobalState({
+      const updatedGlobalState = {
         ...widgetGlobalState,
         values: {
           [widget.target]: undefined,
           ...widgetGlobalState.values,
         },
         widgets: [...widgetGlobalState.widgets, widget],
-      });
+      };
+      setWidgetGlobalState(updatedGlobalState);
+      // submitWidgets(updatedGlobalState);
     },
     [widgetGlobalState]
   );
@@ -36,6 +42,7 @@ export const WidgetsContextProvider = ({ children }) => {
           ...value,
         },
       });
+      // submitWidgets(updatedGlobalState);
     },
     [widgetGlobalState]
   );
@@ -58,6 +65,7 @@ export const WidgetsContextProvider = ({ children }) => {
         ...widgetGlobalState,
         widgets: [...filteredWidgets],
       });
+      // submitWidgets(updatedGlobalState);
     },
     [widgetGlobalState]
   );
