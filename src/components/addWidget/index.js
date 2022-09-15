@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { WidgetsContext } from "../../screens/widgets.context";
+import { WidgetsContext } from "../../context/widgets.context";
 import Input from "../input";
 import Button from "../button";
 
@@ -14,6 +14,11 @@ function AddWidget() {
     reset,
     formState: { errors },
   } = useForm();
+
+  const addaddWidget = (type, data) => {
+    addWidgetGlobalState(type, data);
+    reset();
+  };
 
   return (
     <div className="add-widget__layout">
@@ -36,18 +41,12 @@ function AddWidget() {
           />
           <div className="buttons-box">
             <Button
-              onClick={handleSubmit((data) => {
-                addWidgetGlobalState("inputbox", data);
-                reset();
-              })}
+              onClick={handleSubmit((data) => addaddWidget("inputbox", data))}
             >
               Create InputBox
             </Button>
             <Button
-              onClick={handleSubmit((data) => {
-                addWidgetGlobalState("buttons", data);
-                reset();
-              })}
+              onClick={handleSubmit((data) => addaddWidget("buttons", data))}
             >
               Create Buttons
             </Button>

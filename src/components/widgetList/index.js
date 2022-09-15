@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { WidgetsContext } from "../../screens/widgets.context";
+import { WidgetsContext } from "../../context/widgets.context";
 import Card from "../card";
 import "./style.scss";
 

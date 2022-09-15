@@ -1,5 +1,5 @@
 import AddWidget from "../../components/addWidget";
-import GlobalSate from "../../components/globalState";
+import GlobalSateView from "../../components/globalStateView";
 import WidgetList from "../../components/widgetList";
 import "./style.scss";
 
@@ -8,7 +8,7 @@ function WidgetsScreen() {
     <div className="widget-screen__layout">
       <div className="widget-screen__body">
         <div className="container">
-          <GlobalSate />
+          <GlobalSateView />
           <div className="widgets">
             <WidgetList />
           </div>

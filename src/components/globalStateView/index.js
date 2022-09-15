@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import ReactJson from "react-json-view";
-import { WidgetsContext } from "../../screens/widgets.context";
+import { WidgetsContext } from "../../context/widgets.context";
 import "./style.scss";
 
-function GlobalSate() {
+function GlobalSateView() {
   const { widgetGlobalState } = useContext(WidgetsContext);
   return (
     <div className="global-state__layout">
@@ -21,4 +21,4 @@ function GlobalSate() {
   );
 }
 
-export default GlobalSate;
+export default GlobalSateView;

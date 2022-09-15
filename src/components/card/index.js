@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { WidgetsContext } from "../../screens/widgets.context";
+import { WidgetsContext } from "../../context/widgets.context";
 import Button from "../button";
 import Input from "../input";
 import "./style.scss";
@@ -12,7 +12,7 @@ function Card({ widget, widgetIndex }) {
   } = useContext(WidgetsContext);
 
   const [inputValue, setInputValue] = useState(
-    widgetGlobalState.values[widget.target]
+    widgetGlobalState.values[widget.target] ?? ""
   );
 
   const handleBlur = (e) => {
@@ -25,7 +25,7 @@ function Card({ widget, widgetIndex }) {
     setInputValue(e.target.value);
   };
 
-  const handlePlusButton = () => {
+  const handleIncrement = () => {
     updateWidgetGlobalStateValue({
       [widget.target]:
         widgetGlobalState.values[widget.target] === undefined
@@ -34,7 +34,7 @@ function Card({ widget, widgetIndex }) {
     });
   };
 
-  const handleMinusButton = () => {
+  const handleDecrement = () => {
     updateWidgetGlobalStateValue({
       [widget.target]:
         widgetGlobalState.values[widget.target] === undefined
@@ -69,7 +69,7 @@ function Card({ widget, widgetIndex }) {
       <div className="card-footer">
         {widget.type === "inputbox" && (
           <Input
-            value={inputValue === undefined ? "" : inputValue}
+            value={inputValue}
             type="number"
             min={0}
             onBlur={handleBlur}
@@ -78,10 +78,10 @@ function Card({ widget, widgetIndex }) {
         )}
         {widget.type === "buttons" && (
           <>
-            <Button onClick={handlePlusButton}>Button: +1</Button>
+            <Button onClick={handleIncrement}>Button: +1</Button>
             <Button
-              disabled={widgetGlobalState.values[widget.target] < 1}
-              onClick={handleMinusButton}
+              disabled={!widgetGlobalState.values[widget.target]}
+              onClick={handleDecrement}
             >
               Button: -1
             </Button>

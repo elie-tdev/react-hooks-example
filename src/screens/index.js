@@ -1,5 +1,5 @@
 import WidgetsScreen from "./widgets";
-import { WidgetsContextProvider } from "./widgets.context";
+import { WidgetsContextProvider } from "../context/widgets.context";
 
 function Screens() {
   return (

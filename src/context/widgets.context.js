@@ -1,6 +1,14 @@
 import { useState, createContext, useCallback } from "react";
 
-export const WidgetsContext = createContext({});
+export const WidgetsContext = createContext({
+  widgetGlobalState: {
+    values: {},
+    widgets: [],
+  },
+  addWidgetGlobalState: () => {},
+  removeWidgetGolbalState: () => {},
+  updateWidgetGlobalStateValue: () => {},
+});
 
 export const WidgetsContextProvider = ({ children }) => {
   const [widgetGlobalState, setWidgetGlobalState] = useState({
